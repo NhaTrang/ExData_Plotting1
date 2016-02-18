@@ -20,7 +20,7 @@ pwr$Sub_metering_1 <- as.numeric(as.character(pwr$Sub_metering_1))
 pwr$Sub_metering_2 <- as.numeric(as.character(pwr$Sub_metering_2))
 pwr$Sub_metering_3 <- as.numeric(as.character(pwr$Sub_metering_3))
 
-#Construct the plot and save it into variable plot1 
+#Construct the plot and save it into variable plot3
 
 plot3 <plot(pwr$timestamp, pwr$Sub_metering_1, type = "l", xlab = "", ylab="Energy sub metering")
 lines(pwr$timestamp,pwr$Sub_metering_2,col="red")
