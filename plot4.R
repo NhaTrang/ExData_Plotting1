@@ -20,23 +20,18 @@ pwr$Sub_metering_1 <- as.numeric(as.character(pwr$Sub_metering_1))
 pwr$Sub_metering_2 <- as.numeric(as.character(pwr$Sub_metering_2))
 pwr$Sub_metering_3 <- as.numeric(as.character(pwr$Sub_metering_3))
 
-#Construct the hist and save it into variable plot1 
+#Construct the hist and save it into variable plot4
 
 par(mfrow=c(2,2))
 
 
-plot(df$timestamp,df$Global_active_power, type="l", xlab="", ylab="Global Active Power")
-##PLOT 2
-plot(df$timestamp,df$Voltage, type="l", xlab="datetime", ylab="Voltage")
-
-##PLOT 3
-plot(df$timestamp,df$Sub_metering_1, type="l", xlab="", ylab="Energy sub metering")
-lines(df$timestamp,df$Sub_metering_2,col="red")
-lines(df$timestamp,df$Sub_metering_3,col="blue")
-legend("topright", col=c("black","red","blue"), c("Sub_metering_1  ","Sub_metering_2  ", "Sub_metering_3  "),lty=c(1,1), bty="n", cex=.5) #bty removes the box, cex shrinks the text, spacing added after labels so it renders correctly
-
-#PLOT 4
-plot(df$timestamp,df$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
+plot(pwr$timestamp,pwr$Global_active_power, type="l", xlab="", ylab="Global Active Power")
+plot(pwr$timestamp,pwr$Voltage, type="l", xlab="datetime", ylab="Voltage")
+plot(pwr$timestamp,pwr$Sub_metering_1, type="l", xlab="", ylab="Energy sub metering")
+lines(pwr$timestamp,pwr$Sub_metering_2,col="red")
+lines(pwr$timestamp,pwr$Sub_metering_3,col="blue")
+legend("topright", col=c("black","red","blue"), c("Sub_metering_1  ","Sub_metering_2  ", "Sub_metering_3  ")) 
+plot(pwr$timestamp,pwr$Global_reactive_power, type="l", xlab="datetime", ylab="Global_reactive_power")
 #Save it to a PNG file with a width of 480 pixels and a height of 480 pixels.
 
 dev.copy(png, file="plot4.png", width=480, height=480)
